@@ -1,0 +1,50 @@
+
+//SINLE LED BLINK
+
+
+TRISB = 0x00;     // Set PORTB as output
+PORTB = 0x00;     // Initialize PORTB to 0 (turn off all LEDs)
+
+while (1) {        // Infinite loop
+    PORTB = 0b00000001;  // Turn ON first LED (RB0 = 1)
+    Delay_ms(250);       // Wait for 250 milliseconds
+
+    PORTB = 0b00000000;  // Turn OFF all LEDs (RB0 = 0)
+    Delay_ms(250);       // Wait for 250 milliseconds
+}
+
+
+// BLINKING 8 LEDS
+void main() {
+    TRISB = 0b00000000;  // Set PORTB as output
+    PORTB = 0b00000000;  // Initialize PORTB (all LEDs OFF)
+    
+    while (1) {
+        PORTB = 0b00000001;  // Turn ON LED1 (RB0)
+        Delay_ms(250);
+        
+        PORTB = 0b00000010;  // Turn ON LED2 (RB1)
+        Delay_ms(250);
+        
+        PORTB = 0b00000100;  // Turn ON LED3 (RB2)
+        Delay_ms(250);
+        
+        PORTB = 0b00001000;  // Turn ON LED4 (RB3)
+        Delay_ms(250);
+        
+        PORTB = 0b00010000;  // Turn ON LED5 (RB4)
+        Delay_ms(250);
+        
+        PORTB = 0b00100000;  // Turn ON LED6 (RB5)
+        Delay_ms(250);
+        
+        PORTB = 0b01000000;  // Turn ON LED7 (RB6)
+        Delay_ms(250);
+        
+        PORTB = 0b10000000;  // Turn ON LED8 (RB7)
+        Delay_ms(250);
+        
+        PORTB = 0b00000000;  // Turn OFF all LEDs
+        Delay_ms(250);
+    }
+}
